@@ -4,7 +4,7 @@ import { CreateFieldNames, FormFields, FormSchema, FormValues } from './types';
  * A student form with fields:
  *  name, age, gender, school(name, address)
  */
-function Basic() {
+export function BasicXForm() {
   type Names = CreateFieldNames<
     | 'name'
     | 'gender'
@@ -59,4 +59,8 @@ function Basic() {
       address: 'New york',
     },
   } satisfies FormValues<Names>;
+
+  console.log({ form, values: student });
+
+  return null;
 }

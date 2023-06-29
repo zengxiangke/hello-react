@@ -1,5 +1,5 @@
-import { StrictMode } from 'react';
+import { BasicXForm } from './lib/xform/demo';
 
 export default function App() {
-  return <div>node</div>;
+  return <BasicXForm />;
 }

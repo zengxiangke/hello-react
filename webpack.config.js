@@ -1,12 +1,17 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
-
+const path = require('path');
 const isProdEnv = process.env.NODE_ENV === 'production';
 
 /**
  * @type {import('webpack-dev-server').Configuration}
  */
-const devServerConfig = {};
+const devServerConfig = {
+  open: true,
+  static: {
+    directory: path.join(__dirname, 'public'),
+  },
+};
 
 /**
  * @type {import('webpack').Configuration}
@@ -17,7 +22,7 @@ const config = {
   entry: './src/index.tsx',
   output: {
     path: __dirname + '/dist',
-    filename: 'bundle.js',
+    filename: '[name]-[hash].js',
   },
   module: {
     rules: [
@@ -35,7 +40,7 @@ const config = {
       // },
 
       {
-        test: /\.tsx?$/,
+        test: /[.](js|ts)x?$/,
         use: {
           loader: 'ts-loader',
           options: {
@@ -47,11 +52,11 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   plugins: [
     new HtmlPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
     }),
   ],
 

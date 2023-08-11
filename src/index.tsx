@@ -6,9 +6,6 @@ renderApp();
 
 function renderApp() {
   const container = document.getElementById('app')!;
-  createRoot(container).render(
-    <StrictMode>
-      <App />
-    </StrictMode>
-  );
+  debugger;
+  createRoot(container).render(<App />);
 }

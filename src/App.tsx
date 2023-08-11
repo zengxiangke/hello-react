@@ -1,5 +1,3 @@
-import { BasicXForm } from './lib/xform/demo';
-
 export default function App() {
-  return <BasicXForm />;
+  return <h3>...</h3>;
 }
